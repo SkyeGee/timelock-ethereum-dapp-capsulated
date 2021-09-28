@@ -11,4 +11,7 @@ I find it immensely frustrating to have to access different locations for differ
 
 Thoughts:
 1) Since security is severely important would it be better to limit the application to desktop access only?
-2) 
+2) Storage of data - make use of IPFS, Arweave more cost effective than ethereum?
+3) Use cases for smart contract: how could a smart contract be used to confirm the legitimacy of the third party requesting to view required data?
+
+* Secure the contents and the proper triggering of data transfers.
