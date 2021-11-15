@@ -1,17 +1,12 @@
 # blockchain-developer-bootcamp-final-project
-**My final project idea**
+**NAME**
 
-Develop a vault that can be linked to your MetaMask wallet to store important & personal info in one place.
-Your private key will be able to "unlock" the vault and access all of your linked personal/medical/investment information and documents in one place. 
+Develop a trust fund for your kids through means of a time locked wallet for digital asssets.  
 
-The blunt idea would be to have a secure, online place to store all of your important information that only you are able to access. When needing to share any of the information one can do so with the use of a public key - the shared information will present itself as a 'snapshot' at that specific time allowing the third party to access only the time specific view of the document/portfolio. 
+**Background:**
+With a 3 year old and a little bub on the way (due date 31 Jan 2022) I have explored many of the different options that allow you to store/invest funds for your kids and I recognised the need for a decentralized means of storing digital assets as investments for our children. 
 
-Background:
-I find it immensely frustrating to have to access different locations for different personal information. Hopefully this will aid the "admin" part of our personal lives by providing access to all of our info in one location and furthermore allowing us to share specific documents or info safely via the same platform. (I am thinking of the need to access or share investment portfolios, ID verifications, financial statements, wills, birth certificates, medical info etc)
+Cryptocurrency has proven that it's here to stay and that, in many cases, it is a profitable means of storing cash or funds. In the current time we find ourselves in many of the centralized currencies and banks have proven to not be as trustworthy as we once believed them to be. This should not take away from the fact that our kids need to be looked after and that we need a means of storing funds for them from a young age that could help them pay for tertiary education, their first car or first house. 
 
-Thoughts:
-1) Since security is severely important would it be better to limit the application to desktop access only?
-2) Storage of data - make use of IPFS, Arweave more cost effective than ethereum?
-3) Use cases for smart contract: how could a smart contract be used to confirm the legitimacy of the third party requesting to view required data?
-
-* Secure the contents and the proper triggering of data transfers.
+**How will my DApp work?**
+Through means of a time lock contract you are able to deposit tokens into a wallet that will be locked until your child reaches of age. Only once the specified birthday is reached the funds will be released and transferred to them. 
