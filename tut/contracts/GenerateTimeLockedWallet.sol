@@ -7,10 +7,10 @@ contract GenerateTimeLockedWallet {
  
     mapping(address => address[]) wallets;
 
-    function getWallets(address _user) 
+    function GetWallets(address _user) 
         public
         view
-        returns(address[])
+        returns(address[] memory)
     {
         return wallets[_user];
     }
@@ -18,28 +18,28 @@ contract GenerateTimeLockedWallet {
     function newTimeLockedWallet(address _owner, uint256 _unlockDate)
         payable
         public
-        returns(address wallet)
+        returns(TimeLockedWallet wallet)
     {
         // Create new wallet.
         wallet = new TimeLockedWallet(msg.sender, _owner, _unlockDate);
         
         // Add wallet to sender's wallets.
-        wallets[msg.sender].push(wallet);
+        wallets[msg.sender].push(address(wallet));
 
         // If owner is the same as sender then add wallet to sender's wallets too.
         if(msg.sender != _owner){
-            wallets[_owner].push(wallet);
+            wallets[_owner].push(address(wallet));
         }
 
         // Send ether from this transaction to the created contract.
-        wallet.transfer(msg.value);
+        payable(wallet).transfer(msg.value);
 
         // Emit event.
-        Created(wallet, msg.sender, _owner, now, _unlockDate, msg.value);
+       emit Created(address(wallet), msg.sender, _owner, block.timestamp, _unlockDate, msg.value);
     }
 
     // Prevents accidental sending of ether to the factory
-    fallback () public {
+    fallback () external {
         revert();
     }
 
