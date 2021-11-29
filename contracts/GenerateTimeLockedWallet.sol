@@ -28,7 +28,7 @@ contract GenerateTimeLockedWallet {
         wallet = new TimeLockedWallet(payable(msg.sender), _owner, _unlockDate);
         
         // Add wallet to sender's wallets.
-        wallets[msg.sender].push(address(wallet));
+        wallets[payable(msg.sender)].push(address(wallet));
 
         // If owner is the same as sender then add wallet to sender's wallets too.
         if(msg.sender != _owner){
@@ -42,7 +42,7 @@ contract GenerateTimeLockedWallet {
        emit Created(address(wallet), msg.sender, _owner, block.timestamp, _unlockDate, msg.value);
     }
 
-    // Prevents accidental sending of ether to the factory
+    // Prevents accidental sending of ether to the wallet generator
     fallback () external {
         revert();
     }
