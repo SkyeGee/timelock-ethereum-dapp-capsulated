@@ -1,4 +1,4 @@
-const TimeLockedWalletTest = artifacts.require("TimeLockedWalletTest");
+const TimeLockedWallet = artifacts.require("TimeLockedWallet");
 
 /*
  * uncomment accounts to access the test accounts made available by the
@@ -11,8 +11,8 @@ const TimeLockedWalletTest = artifacts.require("TimeLockedWalletTest");
 //     return assert.isTrue(true);
 //   });
 // });
-let ethToSend = web3.toWei(1, "ether");
-let someGas = web3.toWei(0.01, "ether");
+let ethToSend = web3.utils.toBN(1, "ether");
+let someGas = web3.utils.toBN("0.01", "ether");
 let creator;
 let owner;
 

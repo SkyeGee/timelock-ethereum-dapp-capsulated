@@ -1,5 +1,5 @@
 const TimeLockedWallet = artifacts.require("./TimeLockedWallet.sol");
-const GenerateTimeLockedWalletTest = artifacts.require("GenerateTimeLockedWalletTest");
+const GenerateTimeLockedWallet = artifacts.require("GenerateTimeLockedWallet");
 
 /*
  * uncomment accounts to access the test accounts made available by the
@@ -13,8 +13,8 @@ const GenerateTimeLockedWalletTest = artifacts.require("GenerateTimeLockedWallet
 //   });
 // });
 
-let ethToSend = web3.toWei(1, "ether");
-let someGas = web3.toWei(0.01, "ether");
+let ethToSend = web3.utils.toBN(1, "ether");
+let someGas = web3.utils.toBN("0.01", "ether");
 let GeneratetimeLockedWallet;
 let creator;
 let owner;
