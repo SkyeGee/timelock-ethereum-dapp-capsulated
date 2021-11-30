@@ -11,8 +11,8 @@ const TimeLockedWallet = artifacts.require("TimeLockedWallet");
 //     return assert.isTrue(true);
 //   });
 // });
-let ethToSend = web3.utils.toBN(1, "ether");
-let someGas = web3.utils.toBN("0.01", "ether");
+let ethToSend = web3.utils.toWei("1", "ether");
+let someGas = web3.utils.toWei("0.01", "ether");
 let creator;
 let owner;
 
@@ -29,7 +29,7 @@ contract('TimeLockedWallet', (accounts) => {
         let now = Math.floor((new Date).getTime() / 1000);
         //create the contract and load the contract with some eth
         let timeLockedWallet = await TimeLockedWallet.new(creator, owner, now);
-        await TimeLockedWallet.send(ethToSend, {from: creator});
+        await timeLockedWallet.toSendEth(toSendEth, {from: creator});
         assert(ethToSend == await web3.eth.getBalance(timeLockedWallet.address));
         let balanceBefore = await web3.eth.getBalance(owner);
         await timeLockedWallet.withdraw({from: owner});

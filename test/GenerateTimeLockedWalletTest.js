@@ -13,8 +13,8 @@ const GenerateTimeLockedWallet = artifacts.require("GenerateTimeLockedWallet");
 //   });
 // });
 
-let ethToSend = web3.utils.toBN(1, "ether");
-let someGas = web3.utils.toBN("0.01", "ether");
+let ethToSend = web3.utils.toWei("1", "ether");
+let someGas = web3.utils.toWei("0.01", "ether");
 let GeneratetimeLockedWallet;
 let creator;
 let owner;
@@ -25,14 +25,14 @@ contract('GenerateTimeLockedWallet', (accounts) => {
     before(async () => {
         creator = accounts[0];
         owner = accounts[1];
-        GenerateTimeLockedWallet = await GenerateTimeLockedWallet.new({from: creator});
+        generateTimeLockedWallet = await GenerateTimeLockedWallet.new({from: creator});
 
     });
 
     it("Contract generator is working well", async () => {
         // Create the wallet contract.
         let now = Math.floor((new Date).getTime() / 1000);
-        await GenerateTimeLockedWallet.newTimeLockedWallet(
+        await generateTimeLockedWallet.newTimeLockedWallet(
             owner, now, {from: creator, value: ethToSend}
         );
 
