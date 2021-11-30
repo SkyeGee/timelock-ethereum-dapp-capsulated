@@ -29,7 +29,7 @@ contract('TimeLockedWallet', (accounts) => {
         let now = Math.floor((new Date).getTime() / 1000);
         //create the contract and load the contract with some eth
         let timeLockedWallet = await TimeLockedWallet.new(creator, owner, now);
-        await timeLockedWallet.toSendEth(toSendEth, {from: creator});
+        await timeLockedWallet.toSendEth(Send, {from: creator});
         assert(ethToSend == await web3.eth.getBalance(timeLockedWallet.address));
         let balanceBefore = await web3.eth.getBalance(owner);
         await timeLockedWallet.withdraw({from: owner});
